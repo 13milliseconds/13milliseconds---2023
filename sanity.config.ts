@@ -3,6 +3,7 @@
  */
 
 import { visionTool } from '@sanity/vision'
+import { structure } from 'deskStructure'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import {
@@ -32,13 +33,14 @@ const iframeOptions = {
 
 export default defineConfig({
   basePath: '/studio',
-  name: 'project-name',
-  title: 'Project Name',
+  name: '13milliseconds',
+  title: '13milliseconds',
   projectId,
   dataset,
   //edit schemas in './src/schemas'
   schema,
   plugins: [
+    deskTool({structure}),
     deskTool({
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       // You can add any React component to `S.view.component` and it will be rendered in the pane

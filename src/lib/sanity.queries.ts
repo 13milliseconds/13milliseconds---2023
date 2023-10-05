@@ -24,6 +24,19 @@ export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `
 
+// GET PAGE DATA
+export async function getPage(client: SanityClient, page : string)
+: Promise<PageAboutData | PageHomeData | PageWorkData> {
+  const pageQuery = groq`*[_id == "${page}"]`
+  return await client.fetch(pageQuery)
+}
+
+// GET SITE SETTINGS
+export async function getSiteSettings(client: SanityClient): Promise<SiteSettingsData> {
+  const siteSettingsQuery = groq`*[_type == "siteSettings"]`
+  return await client.fetch(siteSettingsQuery)
+}
+
 export interface Post {
   _type: 'post'
   _id: string
@@ -33,4 +46,21 @@ export interface Post {
   excerpt?: string
   mainImage?: ImageAsset
   body: PortableTextBlock[]
+}
+
+export interface PageAboutData {
+  title?: string
+  body: PortableTextBlock[]
+}
+
+export interface PageWorkData {
+  title?: string
+}
+
+export interface PageHomeData {
+  title?: string
+}
+
+export interface SiteSettingsData {
+  title?: string
 }
