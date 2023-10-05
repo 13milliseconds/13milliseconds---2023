@@ -1,31 +1,30 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { urlForImage } from '~/lib/sanity.image'
 import { type Post } from '~/lib/sanity.queries'
-import { formatDate } from '~/utils'
+
+import styles from './styles.module.css'
 
 export default function Card({ post }: { post: Post }) {
   return (
-    <div className="card">
+    <div className={styles.card}>
       {post.mainImage ? (
         <Image
-          className="card__cover"
+          className={styles.card__cover}
           src={urlForImage(post.mainImage).width(500).height(300).url()}
           height={300}
           width={500}
           alt=""
         />
-      ) : (
-        <div className="card__cover--none" />
-      )}
-      <div className="card__container">
-        <h3 className="card__title">
-          <a className="card__link" href={`/post/${post.slug.current}`}>
+      ) : null}
+      <div className={styles.card__container}>
+        <h3 className={styles.card__title}>
+          <Link className={styles.card__link} href={`/project/${post.slug.current}`}>
             {post.title}
-          </a>
+          </Link>
         </h3>
-        <p className="card__excerpt">{post.excerpt}</p>
-        <p className="card__date">{formatDate(post._createdAt)}</p>
+        <p className={styles.card__excerpt}>{post.excerpt}</p>
       </div>
     </div>
   )

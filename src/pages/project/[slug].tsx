@@ -62,13 +62,10 @@ export default function ProjectSlugRoute(
             width={367}
             alt=""
           />
-        ) : (
-          <div className="post__cover--none" />
-        )}
-        <div className="post__container">
+        ) : null}
+        <div className="container">
           <h1 className="post__title">{post.title}</h1>
           <p className="post__excerpt">{post.excerpt}</p>
-          <p className="post__date">{formatDate(post._createdAt)}</p>
           <div className="post__content">
             <PortableText value={post.body} />
           </div>
@@ -83,7 +80,7 @@ export const getStaticPaths = async () => {
   const slugs = await client.fetch(postSlugsQuery)
 
   return {
-    paths: slugs?.map(({ slug }) => `/post/${slug}`) || [],
+    paths: slugs?.map(({ slug }) => `/project/${slug}`) || [],
     fallback: 'blocking',
   }
 }

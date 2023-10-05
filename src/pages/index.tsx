@@ -3,11 +3,12 @@ import { useLiveQuery } from 'next-sanity/preview'
 
 import Card from '~/components/Card'
 import Container from '~/components/Container'
-import Welcome from '~/components/Welcome'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
+
+import styles from './styles.module.css'
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {
@@ -32,12 +33,14 @@ export default function IndexPage(
   const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
   return (
     <Container>
+      <section className={styles.intro}>
+        We’re a digital-first creative studio turning brands into delightful web experiences. Our work is purpose-driven and we aim to work with social impact organizations and brands to reimagine and amplify their message.
+      </section>
+
       <section>
         {posts.length ? (
           posts.map((post) => <Card key={post._id} post={post} />)
-        ) : (
-          <Welcome />
-        )}
+        ) : null}
       </section>
     </Container>
   )
