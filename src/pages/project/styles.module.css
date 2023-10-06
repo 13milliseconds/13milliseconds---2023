@@ -17,15 +17,8 @@
   .project__container {
     padding: 0 var(--space-3);
   }
-  
-  .project__content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
 
   .project__content p{
-    grid-column: 2;
-    
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
@@ -60,5 +53,12 @@
 }
   
   @media (min-width: 800px) {
+    .project__content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
     
+    .project__content p{
+      grid-column: 2;
+    }
   }

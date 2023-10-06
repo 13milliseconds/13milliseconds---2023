@@ -1,5 +1,8 @@
+import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Link from "next/link"
 import { useLiveQuery } from 'next-sanity/preview'
+import { useState } from "react"
 
 import Card from '~/components/Card'
 import Container from '~/components/Container'
@@ -31,8 +34,19 @@ export default function IndexPage(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
+  const { scrollY} = useScroll();
+  const [transitionPercent, setTransitionPercent] = useState(0)
+  const transitionThreshold = 100
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setTransitionPercent(latest * 100 / transitionThreshold)
+  })
+  
   return (
     <Container>
+      <motion.div className={styles.header__title} style={{ translateY: -transitionPercent }} >
+          13milliseconds
+        </motion.div>
       <section className={styles.intro}>
         We’re a digital-first creative studio turning brands into delightful web experiences. Our work is purpose-driven and we aim to work with social impact organizations and brands to reimagine and amplify their message.
       </section>

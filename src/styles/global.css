@@ -70,6 +70,7 @@ body {
 }
 
 main{
+  margin-top: 3rem;
   padding: 0 var(--space-4);
   flex: 1;
 }
@@ -90,6 +91,6 @@ a{
   }
 
   main {
-    margin-top: unset;
+    margin-top: 3rem;
   }
 }
