@@ -1,5 +1,8 @@
-.project {
-    width: 100%;
+.project__header {
+
+}
+
+.project__content {
     margin: var(--space-1) 0 var(--space-4);
   }
   
@@ -16,12 +19,17 @@
   }
   
   .project__content {
-    font-size: var(--font-size-4);
-    line-height: var(--line-height-5);
-    letter-spacing: -0.02em;
-    margin-top: var(--space-6);
-  
-    /* Targeting tags in PortableText */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .project__content p{
+    grid-column: 2;
+    
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
   
   .project__content blockquote {
@@ -36,41 +44,21 @@
   }
   
   .project__title {
-    font-size: var(--font-size-7);
-    line-height: var(--line-height-6);
-    margin: var(--space-4) 0;
-    font-weight: 800;
-  }
-  
-  .project__excerpt {
-    font-size: var(--font-size-5);
-    line-height: var(--line-height-4);
-    margin-top: 0;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.project__excerpt {
+    font-size: 1.5rem;
+    font-style: normal;
     font-weight: 400;
-  }
+    line-height: normal;
+    margin-top: 0;
+}
   
   @media (min-width: 800px) {
-    .project__title {
-      font-size: var(--font-size-10);
-      line-height: var(--line-height-10);
-      margin: var(--space-6) 0 0;
-      letter-spacing: -0.025em;
-    }
-  
-    .project__excerpt {
-      font-size: var(--font-size-5);
-      line-height: var(--line-height-5);
-      margin-top: var(--space-3);
-      margin-bottom: var(--space-3);
-    }
-  
-    .project__date {
-      font-size: var(--font-size-3);
-      line-height: var(--line-height-2);
-      margin-top: var(--space-0);
-    }
-  
-    .project__content {
-      margin-top: var(--space-7);
-    }
+    
   }

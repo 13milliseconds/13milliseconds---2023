@@ -55,22 +55,12 @@ export default function ProjectSlugRoute(
 
   return (
     <Container>
-      <section className={styles.project}>
-        {post.mainImage ? (
-        <ResponsiveImage
-          image={post.mainImage}
-          width={1500}
-          className={styles.project__cover}
-          alt="Project hero image"
-          />
-        ) : null}
-        <div className="container">
-          <h1 className={styles.project__title}>{post.title}</h1>
-          <p className={styles.project__excerpt}>{post.excerpt}</p>
-          <div className={styles.project__content}>
+      <section className={styles.project__header}>
+        <h1 className={styles.project__title}>{post.title}</h1>
+        <p className={styles.project__excerpt}>{post.excerpt}</p>
+      </section>
+      <section className={styles.project__content}>
             <PortableText value={post.body} />
-          </div>
-        </div>
       </section>
     </Container>
   )
