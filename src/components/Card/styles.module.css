@@ -58,7 +58,14 @@
   @media (min-width: 800px) {
     .card {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .card img{
+      grid-column: span 2;
+    }
+
+    .card:nth-child(2n) img{
+      order: 1;
     }
   }
   

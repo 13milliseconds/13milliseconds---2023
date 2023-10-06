@@ -36,7 +36,7 @@ export default function IndexPage(
   const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
   const { scrollY} = useScroll();
   const [transitionPercent, setTransitionPercent] = useState(0)
-  const transitionThreshold = 100
+  const transitionThreshold = 300
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setTransitionPercent(latest * 100 / transitionThreshold)
@@ -44,7 +44,14 @@ export default function IndexPage(
   
   return (
     <Container>
-      <motion.div className={styles.header__title} style={{ translateY: -transitionPercent }} >
+      <motion.div 
+        className={styles.header__title} 
+        style={{ 
+          translateY: -transitionPercent,
+          filter: `blur(${transitionPercent * .1}px)`,
+          opacity: 1 - transitionPercent / 100,
+        }} 
+      >
           13milliseconds
         </motion.div>
       <section className={styles.intro}>
