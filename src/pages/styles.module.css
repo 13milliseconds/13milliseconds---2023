@@ -1,20 +1,13 @@
 .intro{
-    font-size: 1.8rem;
-    line-height: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.875rem; /* 125% */
     font-style: normal;
     font-weight: 400;
-    max-width: 60rem;
+    margin-top: var(--space-4);
 }
 
 .header__title{
-    display: block;
-    font-size: 15vw;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    position: relative;
-    z-index: -1;
+    display: none;
 }
 
 @media (min-width: 800px) {
@@ -25,5 +18,16 @@
     
     .header__title{
         font-size: 16vw;
+    }
+
+    .header__title{
+        display: block;
+        font-size: 15vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+        position: relative;
+        z-index: -1;
     }
 }

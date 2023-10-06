@@ -3,7 +3,7 @@ import { SchemaTypeDefinition } from 'sanity'
 import blockContent from './blockContent'
 import pageAbout from './pageAbout'
 import pageHome from './pageHome'
-import pageWork from './pageWork'
+import pageProjects from './pageProjects'
 import post from './post'
 import siteSettings from './siteSettings'
 
@@ -12,7 +12,7 @@ export const schemaTypes = [
   blockContent,
   pageHome,
   pageAbout,
-  pageWork,
+  pageProjects,
   siteSettings,
 ]
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -21,7 +21,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blockContent,
     pageHome,
     pageAbout,
-    pageWork,
+    pageProjects,
     siteSettings,
   ],
 }

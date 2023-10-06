@@ -16,7 +16,7 @@
   }
   
   .card__title {
-    font-size: 2.375rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -60,6 +60,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .card__title {
+      font-size: 2.375rem;
+    }
+
     .card img{
       grid-column: span 2;
     }

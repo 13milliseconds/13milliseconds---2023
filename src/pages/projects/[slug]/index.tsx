@@ -1,13 +1,11 @@
 import { PortableText } from '@portabletext/react'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Image from 'next/image'
 import { useLiveQuery } from 'next-sanity/preview'
 
 import Container from '~/components/Container'
 import ResponsiveImage from '~/components/ResponsiveImage'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { urlForImage } from '~/lib/sanity.image'
 import {
   getPost,
   type Post,
@@ -55,6 +53,16 @@ export default function ProjectSlugRoute(
 
   return (
     <Container>
+      <section className={styles.project__mainImage}>
+        {post.mainImage ? (
+        <ResponsiveImage
+          image={post.mainImage}
+          width={800}
+          className={styles.project__cover}
+          alt="project image"
+          />
+      ) : null}
+      </section>
       <section className={styles.project__header}>
         <h1 className={styles.project__title}>{post.title}</h1>
         <p className={styles.project__excerpt}>{post.excerpt}</p>
@@ -71,7 +79,7 @@ export const getStaticPaths = async () => {
   const slugs = await client.fetch(postSlugsQuery)
 
   return {
-    paths: slugs?.map(({ slug }) => `/project/${slug}`) || [],
+    paths: slugs?.map(({ slug }) => `/projects/${slug}`) || [],
     fallback: 'blocking',
   }
 }

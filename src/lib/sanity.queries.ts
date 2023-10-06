@@ -26,8 +26,11 @@ export const postSlugsQuery = groq`
 
 // GET PAGE DATA
 export async function getPage(client: SanityClient, page : string)
-: Promise<PageAboutData | PageHomeData | PageWorkData> {
-  const pageQuery = groq`*[_id == "${page}"]`
+: Promise<PageAboutData | PageHomeData | PageProjectsData> {
+  const pageQuery = groq`*[_id == "${page}"]{
+    ...,
+    featuredProjects[]->,
+  }`
   return await client.fetch(pageQuery)
 }
 
@@ -53,12 +56,14 @@ export interface PageAboutData {
   body: PortableTextBlock[]
 }
 
-export interface PageWorkData {
+export interface PageProjectsData {
   title?: string
 }
 
 export interface PageHomeData {
   title?: string
+  intro: string
+  featuredProjects: Post[]
 }
 
 export interface SiteSettingsData {

@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'pageHome',
@@ -9,6 +9,23 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-    })
+    }),
+    defineField({
+      name: 'intro',
+      title: 'Intro',
+      type: 'text',
+    }),
+    defineField({
+      name: 'featuredProjects',
+      title: 'Featured Projects',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          name: "project",
+          type: 'reference',
+          to: [{type: 'post'}]
+        })
+      ]
+    }),
   ]
 })

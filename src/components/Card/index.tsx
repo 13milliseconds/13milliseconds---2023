@@ -18,7 +18,7 @@ export default function Card({ post }: { post: Post }) {
       ) : null}
       <div className={styles.card__container}>
         <h3 className={styles.card__title}>
-          <Link className={styles.card__link} href={`/project/${post.slug.current}`}>
+          <Link className={styles.card__link} href={`/projects/${post.slug.current}`}>
             {post.title}
           </Link>
         </h3>
