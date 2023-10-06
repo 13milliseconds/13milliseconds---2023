@@ -1,22 +1,20 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
-import { urlForImage } from '~/lib/sanity.image'
 import { type Post } from '~/lib/sanity.queries'
 
+import ResponsiveImage from '../ResponsiveImage'
 import styles from './styles.module.css'
 
 export default function Card({ post }: { post: Post }) {
   return (
     <div className={styles.card}>
       {post.mainImage ? (
-        <Image
+        <ResponsiveImage
+          image={post.mainImage}
+          width={1200}
           className={styles.card__cover}
-          src={urlForImage(post.mainImage).width(500).height(300).url()}
-          height={300}
-          width={500}
-          alt=""
-        />
+          alt="project image"
+          />
       ) : null}
       <div className={styles.card__container}>
         <h3 className={styles.card__title}>

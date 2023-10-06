@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useLiveQuery } from 'next-sanity/preview'
 
 import Container from '~/components/Container'
+import ResponsiveImage from '~/components/ResponsiveImage'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { urlForImage } from '~/lib/sanity.image'
@@ -14,7 +15,8 @@ import {
   postSlugsQuery,
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
-import { formatDate } from '~/utils'
+
+import styles from './styles.module.css'
 
 interface Query {
   [key: string]: string
@@ -53,20 +55,19 @@ export default function ProjectSlugRoute(
 
   return (
     <Container>
-      <section className="post">
+      <section className={styles.project}>
         {post.mainImage ? (
-          <Image
-            className="post__cover"
-            src={urlForImage(post.mainImage).url()}
-            height={231}
-            width={367}
-            alt=""
+        <ResponsiveImage
+          image={post.mainImage}
+          width={1500}
+          className={styles.project__cover}
+          alt="Project hero image"
           />
         ) : null}
         <div className="container">
-          <h1 className="post__title">{post.title}</h1>
-          <p className="post__excerpt">{post.excerpt}</p>
-          <div className="post__content">
+          <h1 className={styles.project__title}>{post.title}</h1>
+          <p className={styles.project__excerpt}>{post.excerpt}</p>
+          <div className={styles.project__content}>
             <PortableText value={post.body} />
           </div>
         </div>

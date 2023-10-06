@@ -1,5 +1,6 @@
 .header__title{
-    font-size: 14.5rem;
+    display: block;
+    font-size: 16vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

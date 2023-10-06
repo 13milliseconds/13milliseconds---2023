@@ -36,7 +36,15 @@ export default function AboutPage(
   return (
     <Container>
       <section className={styles.page__content}>
+        <div>
             <PortableText value={body} />
+        </div>
+        <div>
+          <p>A stupid image</p>
+        </div>
+      </section>
+      <section className={styles.logos}>
+        Clients logos
       </section>
     </Container>
   )
