@@ -8,10 +8,14 @@
     line-height: 1.90625rem;
     font-style: normal;
     font-weight: 400;
-    padding-right: var(--space-5);
+}
+
+.footer__content > *{
+    margin-right: var(--space-5);
 }
 
 .footer__content a{
+    display: inline-block;
     color: var(--black);
     border-bottom: 1px solid var(--black);
 }

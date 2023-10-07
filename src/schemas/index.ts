@@ -2,6 +2,7 @@ import { SchemaTypeDefinition } from 'sanity'
 
 import blockContent from './blockContent'
 import pageAbout from './pageAbout'
+import pageContact from './pageContact'
 import pageHome from './pageHome'
 import pageProjects from './pageProjects'
 import post from './post'
@@ -14,6 +15,7 @@ export const schemaTypes = [
   pageAbout,
   pageProjects,
   siteSettings,
+  pageContact,
 ]
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -23,5 +25,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pageAbout,
     pageProjects,
     siteSettings,
+    pageContact,
   ],
 }

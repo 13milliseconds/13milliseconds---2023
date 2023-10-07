@@ -1,13 +1,26 @@
 import '~/styles/global.css'
 
 import type { AppProps } from 'next/app'
-import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+import localFont from 'next/font/local'
 import { lazy } from 'react'
 
 export interface SharedPageProps {
   draftMode: boolean
   token: string
 }
+
+const myFont = localFont({ src: [
+  {
+    path: './fonts/PPNeueMontreal-Light.woff2',
+    weight: '400',
+    style: 'normal',
+  },
+  {
+    path: './fonts/PPNeueMontreal-Regular.woff2',
+    weight: '500',
+    style: 'normal',
+  },
+]})
 
 const PreviewProvider = lazy(() => import('~/components/PreviewProvider'))
 
@@ -18,15 +31,13 @@ export default function App({
   const { draftMode, token } = pageProps
   return (
     <>
-      {/* <style jsx global>
+      <style jsx global>
         {`
           :root {
-            --font-family-sans: ${sans.style.fontFamily};
-            --font-family-serif: ${serif.style.fontFamily};
-            --font-family-mono: ${mono.style.fontFamily};
+            --font-family-sans: ${myFont.style.fontFamily};
           }
         `}
-      </style> */}
+      </style>
       {draftMode ? (
         <PreviewProvider token={token}>
           <Component {...pageProps} />

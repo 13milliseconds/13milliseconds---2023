@@ -27,6 +27,9 @@ export const structure = (S, context) => {
                     S.documentListItem()
                     .schemaType('pageProjects')
                     .id('pageProjects'),
+                    S.documentListItem()
+                    .schemaType('pageContact')
+                    .id('pageContact'),
                 ])),
             ... S.documentTypeListItems()
                     .filter(
@@ -35,6 +38,7 @@ export const structure = (S, context) => {
                             'pageHome', 
                             'pageAbout', 
                             'pageProjects',
+                            'pageContact',
                             'category']
                             .includes(listItem.getId())
                     )

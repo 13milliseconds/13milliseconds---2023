@@ -18,6 +18,7 @@ export default function Header() {
         <nav className={`${styles.header__nav} ${menuOpen && styles.header__nav__open}`}>
             <Link href="/projects" className={styles.header__pill}>Work</Link>
             <Link href="/about" className={styles.header__pill}>About</Link>
+            <Link href="/contact" className={styles.header__pill}>Contact</Link>
         </nav>
     </header>
   )
