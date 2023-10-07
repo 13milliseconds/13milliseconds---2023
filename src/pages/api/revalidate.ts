@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   try {
     const { type, slug } = JSON.parse(body)
-    console.log(body)
+    console.log(type, slug)
 
     switch (type) {
       case "post":
