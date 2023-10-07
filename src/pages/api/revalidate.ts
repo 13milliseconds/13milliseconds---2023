@@ -29,8 +29,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }
 
   try {
-    const { type, slug } = JSON.parse(body)
-    console.log(type, slug)
+    const { _type: type, slug } = JSON.parse(body)
+    console.log(body)
 
     switch (type) {
       case "post":
