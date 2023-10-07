@@ -93,4 +93,8 @@
         padding: .5rem 1rem;
         text-transform: uppercase;
     }
+
+    .header__pill:nth-child(3){
+        display: none;
+    }
 }

@@ -14,6 +14,7 @@
     .intro{
         font-size: 2.375rem;
         line-height: 2.5rem; 
+        max-width: 60rem;
     }
     
     .header__title{
