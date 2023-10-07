@@ -30,12 +30,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   try {
     const { type, slug } = JSON.parse(body)
+    console.log(body)
 
     switch (type) {
       case "post":
         await res.revalidate(`/projects/${slug}`) // The particular project
         await res.revalidate(`/projects`)         // The Projects page
         await res.revalidate(`/`)                 // The landing page featured projects
+        console.log(`Revalidated "${type}" with slug "${slug}"`)
         return res.json({ message: `Revalidated "${type}" with slug "${slug}"` })
     }
 
