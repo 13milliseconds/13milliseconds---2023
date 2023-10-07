@@ -8,6 +8,7 @@ type Data = {
 const secret = process.env.SANITY_REVALIDATE_SECRET
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+    console.log('Revalidating', req, secret)
   if (req.method !== "POST") {
     console.error("Must be a POST request")
     return res.status(401).json({ message: "Must be a POST request" })
