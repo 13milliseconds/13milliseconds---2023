@@ -1,4 +1,4 @@
-import { isValidRequest } from "@sanity/webhook"
+import {isValidSignature, SIGNATURE_HEADER_NAME} from "@sanity/webhook"
 import type { NextApiRequest, NextApiResponse } from "next"
 
 type Data = {
@@ -15,16 +15,18 @@ export const config = {
 const secret = process.env.SANITY_REVALIDATE_SECRET
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+    const signature = req.headers[SIGNATURE_HEADER_NAME] as string
+    const body = await readBody(req) // Read the body into a string
+
     if (req.method !== "POST") {
         console.error("Must be a POST request")
         return res.status(401).json({ message: "Must be a POST request" })
     }
-    
-    if (!isValidRequest(req, secret)) {
-      console.log('Invalid Signature')
-        res.status(401).json({ message: "Invalid signature" })
-    return
-  }
+
+    if (!isValidSignature(body, signature, secret)) {
+        res.status(401).json({message: 'Invalid signature'})
+        return
+    }
 
   try {
     const {
@@ -44,3 +46,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(500).send({ message: "Error revalidating" })
   }
 }
+
+async function readBody(readable) {
+    const chunks = []
+    for await (const chunk of readable) {
+      chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk)
+    }
+    return Buffer.concat(chunks).toString('utf8')
+  }
