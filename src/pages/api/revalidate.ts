@@ -29,9 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }
 
   try {
-    const {
-      body: { type, slug },
-    } = req
+    const { type, slug } = JSON.parse(body)
 
     switch (type) {
       case "post":
@@ -43,6 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     return res.json({ message: "No managed type" })
   } catch (err) {
+    console.log('Error revalidating', body)
     return res.status(500).send({ message: "Error revalidating" })
   }
 }
