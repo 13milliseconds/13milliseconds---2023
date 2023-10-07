@@ -5,17 +5,24 @@ type Data = {
   message: string
 }
 
+// Next.js will by default parse the body, which can lead to invalid signatures
+export const config = {
+    api: {
+      bodyParser: false,
+    },
+  }
+
 const secret = process.env.SANITY_REVALIDATE_SECRET
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-    console.log('Revalidating', req, secret)
-  if (req.method !== "POST") {
-    console.error("Must be a POST request")
-    return res.status(401).json({ message: "Must be a POST request" })
-  }
-
-  if (!isValidRequest(req, secret)) {
-    res.status(401).json({ message: "Invalid signature" })
+    if (req.method !== "POST") {
+        console.error("Must be a POST request")
+        return res.status(401).json({ message: "Must be a POST request" })
+    }
+    
+    if (!isValidRequest(req, secret)) {
+      console.log('Invalid Signature')
+        res.status(401).json({ message: "Invalid signature" })
     return
   }
 
