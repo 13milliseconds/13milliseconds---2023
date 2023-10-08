@@ -2,7 +2,7 @@
     font-size: 1.5rem;
     line-height: 1.875rem; /* 125% */
     font-style: normal;
-    font-weight: 400;
+    font-weight: 450;
     margin-top: var(--space-4);
 }
 
@@ -16,16 +16,12 @@
         line-height: 2.5rem; 
         max-width: 60rem;
     }
-    
-    .header__title{
-        font-size: 16vw;
-    }
 
     .header__title{
         display: block;
-        font-size: 15vw;
+        font-size: 15.5vw;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 450;
         line-height: normal;
         text-align: center;
         position: relative;

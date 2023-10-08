@@ -15,7 +15,7 @@ export default function Header() {
   const isHome = router.pathname == '/'
 
   const { scrollY } = useScroll();
-  const [transitionPercent, setTransitionPercent] = useState(0)
+  const [transitionPercent, setTransitionPercent] = useState(100)
   const transitionThreshold = 250
   useMotionValueEvent(scrollY, "change", (scrollPos) => {
     setTransitionPercent(Math.max((100 - (scrollPos * 100 / transitionThreshold)), 0))

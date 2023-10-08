@@ -31,6 +31,11 @@
     color: var(--blue-600);
     text-decoration: none;
   }
+
+  .project__content img{
+    max-width: 100%;
+    height: auto;
+  }
   
   .project__title {
     font-size: 1.5rem;
@@ -53,7 +58,6 @@
     .project__content img,
     .project__mainImage{
       max-width: 66.66vw;
-      height: auto;
     }
     
     .project__header {
