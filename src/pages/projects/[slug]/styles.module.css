@@ -1,5 +1,5 @@
-.project__header {
-
+.project > * {
+  max-width: 60rem;
 }
 
 .project__content {
@@ -53,13 +53,8 @@
 }
   
   @media (min-width: 800px) {
-    .project__content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-    }
-
     .project__content p{
-      grid-column: 2;
+      max-width: 50rem;
     }
 
     .project__title {

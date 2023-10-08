@@ -53,6 +53,11 @@ export default function ProjectSlugRoute(
 
   return (
     <Container>
+      <div className={styles.project}>
+      <section className={styles.project__header}>
+        <h1 className={styles.project__title}>{post.title}</h1>
+        <p className={styles.project__excerpt}>{post.excerpt}</p>
+      </section>
       <section className={styles.project__mainImage}>
         {post.mainImage ? (
         <ResponsiveImage
@@ -63,13 +68,10 @@ export default function ProjectSlugRoute(
           />
       ) : null}
       </section>
-      <section className={styles.project__header}>
-        <h1 className={styles.project__title}>{post.title}</h1>
-        <p className={styles.project__excerpt}>{post.excerpt}</p>
-      </section>
       <section className={styles.project__content}>
             <PortableText value={post.body} />
       </section>
+      </div>
     </Container>
   )
 }
