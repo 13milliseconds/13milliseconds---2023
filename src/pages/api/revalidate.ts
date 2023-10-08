@@ -30,15 +30,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   try {
     const { _type: type, slug } = JSON.parse(body)
-    console.log(body)
+    console.log(type)
 
     switch (type) {
       case "post":
-        await res.revalidate(`/projects/${slug}`) // The particular project
+        await res.revalidate(`/projects/${slug.current}`) // The particular project
         await res.revalidate(`/projects`)         // The Projects page
         await res.revalidate(`/`)                 // The landing page featured projects
-        console.log(`Revalidated "${type}" with slug "${slug}"`)
-        return res.json({ message: `Revalidated "${type}" with slug "${slug}"` })
+        console.log(`Revalidated "${type}" with slug "${slug.current}"`)
+        return res.json({ message: `Revalidated "${type}" with slug "${slug.current}"` })
     }
 
     return res.json({ message: "No managed type" })
