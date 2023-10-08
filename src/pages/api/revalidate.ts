@@ -37,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         await res.revalidate(`/projects/${slug.current}`) // The particular project
         await res.revalidate(`/projects`)         // The Projects page
         await res.revalidate(`/`)                 // The landing page featured projects
-        console.log(`Revalidated "${type}" with slug "${slug.current}"`)
+        console.log(`/projects/${slug.current}`)
         return res.json({ message: `Revalidated "${type}" with slug "${slug.current}"` })
     }
 

@@ -1,7 +1,3 @@
-.project > * {
-  max-width: 60rem;
-}
-
 .project__content {
     margin: var(--space-1) 0 var(--space-4);
   }
@@ -53,8 +49,22 @@
 }
   
   @media (min-width: 800px) {
+
+    
+    .project__mainImage{
+      max-width: 66.66vw;
+    }
+    
+    .project__header {
+      max-width: 50vw;
+    }
+    
     .project__content p{
-      max-width: 50rem;
+      max-width: 50vw;
+    }
+
+    .project__content{
+      margin-bottom: var(--space-6);
     }
 
     .project__title {

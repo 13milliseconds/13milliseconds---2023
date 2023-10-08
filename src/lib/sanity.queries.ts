@@ -3,13 +3,25 @@ import type { ImageAsset, Slug } from '@sanity/types'
 import groq from 'groq'
 import { type SanityClient } from 'next-sanity'
 
-export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
+export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
+  ...,
+  "mainVideo": mainVideo.asset->{
+    playbackId,
+
+  }
+} | order(_createdAt desc)`
 
 export async function getPosts(client: SanityClient): Promise<Post[]> {
   return await client.fetch(postsQuery)
 }
 
-export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
+export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]{
+  ...,
+  "mainVideo": mainVideo.asset->{
+    playbackId,
+
+  }
+}`
 
 export async function getPost(
   client: SanityClient,
@@ -29,7 +41,12 @@ export async function getPage(client: SanityClient, page : string)
 : Promise<PageAboutData | PageHomeData | PageProjectsData | PageContactData> {
   const pageQuery = groq`*[_id == "${page}"]{
     ...,
-    featuredProjects[]->,
+    featuredProjects[]->{
+      ...,
+      "mainVideo": mainVideo.asset->{
+        playbackId,
+      }
+    },
   }`
   return await client.fetch(pageQuery)
 }
@@ -48,6 +65,9 @@ export interface Post {
   slug: Slug
   excerpt?: string
   mainImage?: ImageAsset
+  mainVideo?: {
+    playbackId: string
+  }
   body: PortableTextBlock[]
 }
 

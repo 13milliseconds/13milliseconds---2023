@@ -27,6 +27,11 @@ export default defineType({
       rows: 4,
     }),
     defineField({
+      name: 'mainVideo',
+      title: 'Main Video',
+      type: 'mux.video',
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',

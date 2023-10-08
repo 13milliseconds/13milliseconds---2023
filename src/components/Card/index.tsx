@@ -1,4 +1,6 @@
+import MuxPlayer from '@mux/mux-player-react'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 import { type Post } from '~/lib/sanity.queries'
 
@@ -6,9 +8,30 @@ import ResponsiveImage from '../ResponsiveImage'
 import styles from './styles.module.css'
 
 export default function Card({ post }: { post: Post }) {
+  const { mainVideo } = post
+  const videoEl = useRef(null);
+  const attemptPlay = () => {
+    videoEl &&
+      videoEl.current &&
+      videoEl.current.play().catch(error => {
+        console.error("Error attempting to play", error);
+      });
+  };
+
   return (
     <div className={styles.card}>
-      {post.mainImage ? (
+      {mainVideo ?
+      <MuxPlayer
+      streamType="on-demand"
+      playbackId={mainVideo.playbackId}
+      playsInline
+      loop
+      muted
+      ref={videoEl}
+      onCanPlay={attemptPlay}
+      className={styles.card__videoplayer}
+    />
+       : post.mainImage ? (
         <ResponsiveImage
           image={post.mainImage}
           width={1200}

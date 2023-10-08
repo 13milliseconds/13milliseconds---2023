@@ -14,6 +14,7 @@
     "singleQuote": true
   },
   "dependencies": {
+    "@mux/mux-player-react": "^2.0.1",
     "@portabletext/react": "3.0.4",
     "@sanity/client": "6.4.7",
     "@sanity/demo": "1.0.2",
@@ -27,6 +28,7 @@
     "react-fast-marquee": "^1.6.1",
     "sanity": "3.15.1",
     "sanity-plugin-iframe-pane": "2.5.5",
+    "sanity-plugin-mux-input": "^2.2.3",
     "styled-components": "5.3.11"
   },
   "devDependencies": {

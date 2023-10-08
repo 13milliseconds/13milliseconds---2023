@@ -102,3 +102,9 @@ a{
     padding: 0 var(--space-4);
   }
 }
+
+@media (min-width: 800px) {
+  main {
+    margin-top: 5rem;
+  }
+}
