@@ -61,12 +61,25 @@
     color: var(--black);
 }
 
+/* MOBILE ONLY  */
+@media (max-width: 800px){
+    .header__title{
+        transform: translateX(0)!important;
+        opacity: 1!important;
+        filter: none!important;
+    }
+}
+
 @media (min-width: 800px){
     .header__title{
         font-size: 4.875rem;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .header__title__home{
+        transform: translateX(-50%) translateY(-200%);
     }
 
     .header__toggle{

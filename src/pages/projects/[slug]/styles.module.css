@@ -50,9 +50,10 @@
   
   @media (min-width: 800px) {
 
-    
+    .project__content img,
     .project__mainImage{
       max-width: 66.66vw;
+      height: auto;
     }
     
     .project__header {

@@ -68,6 +68,8 @@
     .card img,
     .card__videoplayer{
       grid-column: span 2;
+      --controls: none;
+      --media-object-fit: cover;
     }
 
     .card:nth-child(2n) img{

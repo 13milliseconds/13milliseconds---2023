@@ -3,6 +3,7 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useLiveQuery } from 'next-sanity/preview'
 
 import Container from '~/components/Container'
+import PortableTextBlock from '~/components/PortableTextBlock'
 import ResponsiveImage from '~/components/ResponsiveImage'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
@@ -69,7 +70,7 @@ export default function ProjectSlugRoute(
       ) : null}
       </section>
       <section className={styles.project__content}>
-            <PortableText value={post.body} />
+            <PortableTextBlock value={post.body} />
       </section>
       </div>
     </Container>
