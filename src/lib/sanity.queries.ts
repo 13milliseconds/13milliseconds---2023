@@ -74,6 +74,8 @@ export interface Post {
 export interface PageAboutData {
   title?: string
   body: PortableTextBlock[]
+  bioImage: ImageAsset
+  clients: ImageAsset[]
 }
 
 export interface PageProjectsData {

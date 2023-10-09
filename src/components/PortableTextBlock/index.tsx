@@ -5,7 +5,7 @@ import ResponsiveImage from "../ResponsiveImage";
 
 const myPortableTextComponents: PortableTextReactComponents = {
     types: {
-        image: ({ value }: PortableTextTypeComponentProps<ImageAsset>) => <ResponsiveImage width={1000} image={value} alt='' className={""} />
+        image: ({ value }: PortableTextTypeComponentProps<ImageAsset>) => <ResponsiveImage width={1000} image={value} alt='' className={""} />,
     },
     marks: undefined,
     block: undefined,

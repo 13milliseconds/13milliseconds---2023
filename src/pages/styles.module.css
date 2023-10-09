@@ -2,7 +2,7 @@
     font-size: 1.5rem;
     line-height: 1.875rem; /* 125% */
     font-style: normal;
-    font-weight: 450;
+    font-weight: 300;
     margin-top: var(--space-4);
 }
 
@@ -12,6 +12,7 @@
 
 @media (min-width: 800px) {
     .intro{
+        margin: 0 0 var(--space-8);
         font-size: 2.375rem;
         line-height: 2.5rem; 
         max-width: 60rem;
@@ -19,10 +20,10 @@
 
     .header__title{
         display: block;
-        font-size: 15.5vw;
+        font-size: 16.5vw;
         font-style: normal;
-        font-weight: 450;
-        line-height: normal;
+        font-weight: 300;
+        line-height: 1em;
         text-align: center;
         position: relative;
         z-index: -1;

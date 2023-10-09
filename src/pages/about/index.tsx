@@ -1,7 +1,9 @@
 import { PortableText } from '@portabletext/react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Image from 'next/image'
 
 import Container from '~/components/Container'
+import ResponsiveImage from '~/components/ResponsiveImage'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { getPage,PageAboutData } from '~/lib/sanity.queries'
@@ -32,6 +34,8 @@ export default function AboutPage(
         const {
             title, 
             body,
+            bioImage,
+            clients,
         } = pageData
   return (
     <Container>
@@ -39,12 +43,14 @@ export default function AboutPage(
         <div>
             <PortableText value={body} />
         </div>
-        <div>
-          <p>A stupid image</p>
+        <div className={styles.bio__image}>
+          {bioImage && <ResponsiveImage image={bioImage} width={500} alt={'Bio Image'} className={''} />}
         </div>
       </section>
       <section className={styles.logos}>
-        Clients logos
+        {clients.length ? clients.map(client=> 
+          <ResponsiveImage key={client._id} image={client} width={250} alt={''} className={''} />
+        ) : null}
       </section>
     </Container>
   )
