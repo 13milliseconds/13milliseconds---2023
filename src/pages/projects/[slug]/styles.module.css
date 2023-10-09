@@ -14,6 +14,10 @@
     padding: 0 var(--space-3);
   }
 
+  .project__content{
+    margin-bottom: var(--space-6);
+  }
+
   .project__content p{
     font-size: 1.25rem;
     font-style: normal;
