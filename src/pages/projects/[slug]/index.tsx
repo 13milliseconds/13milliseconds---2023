@@ -57,6 +57,16 @@ export default function ProjectSlugRoute(
     <Container>
       <Head>
           <title>13milliseconds // {post.title}</title>
+          <meta name="description" content={post.excerpt} key="desc" />
+          <meta property="og:title" content={post.title} />
+        <meta
+          property="og:description"
+          content={post.excerpt}
+        />
+        <meta
+          property="og:image"
+          content={post.mainImage ? post.mainImage.url : ''}
+        />
       </Head>
       <div className={styles.project}>
       <section className={styles.project__header}>
