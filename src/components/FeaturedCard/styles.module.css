@@ -14,6 +14,11 @@
     aspect-ratio: 1.5;
     object-fit: cover;
   }
+
+.card__videoplayer{
+    --controls: none;
+    --media-object-fit: cover;
+}
   
   .card__title {
     font-size: 1.5rem;
@@ -68,8 +73,6 @@
     .card img,
     .card__videoplayer{
       grid-column: span 2;
-      --controls: none;
-      --media-object-fit: cover;
     }
 
     .card:nth-child(2n) img{
