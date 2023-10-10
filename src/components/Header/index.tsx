@@ -45,7 +45,9 @@ export default function Header() {
           opacity: 1 - transitionPercent / 100,
         }} 
       >{mainTitle}</motion.div> : mainTitle }
-      <Hamburger toggled={menuOpen} toggle={menuToggle} />
+      <div className={styles.header__toggle}>
+        <Hamburger toggled={menuOpen} toggle={menuToggle}/>
+      </div>
         <nav className={`${styles.header__nav} ${menuOpen && styles.header__nav__open}`}>
             {pillLink('projects')}
             {pillLink('about')}

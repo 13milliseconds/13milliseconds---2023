@@ -104,6 +104,7 @@ export interface PageProjectsData {
 
 export interface PageContactData {
   title?: string
+  body: PortableTextBlock[]
 }
 
 export interface PageHomeData {

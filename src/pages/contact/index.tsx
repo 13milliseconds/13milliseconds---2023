@@ -2,6 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 
 import Container from '~/components/Container'
+import PortableTextBlock from '~/components/PortableTextBlock'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { getPage,PageContactData } from '~/lib/sanity.queries'
@@ -29,7 +30,7 @@ export const getStaticProps: GetStaticProps<
 export default function ContactPage(
     { pageData }: InferGetStaticPropsType<typeof getStaticProps>,)  
     {
-      const {title} = pageData
+      const {title, body} = pageData
   return (
     <Container>
       <Head>
@@ -37,6 +38,9 @@ export default function ContactPage(
       </Head>
       <section className={styles.logos}>
         <h1>{title}</h1>
+        <div className={styles.content}>
+          <PortableTextBlock value={body} />
+        </div>
       </section>
     </Container>
   )

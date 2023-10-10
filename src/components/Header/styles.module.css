@@ -48,17 +48,10 @@
     text-underline-offset: 3px;
 }
 
-.header__toggle{
-    background-color: var(--white);
-    border-radius: 2rem;
-    border: 0;
+.header__toggle,
+.header__toggle .hamburger-react,
+.header__toggle div:focus-visible{
     outline: 0;
-    padding: .5rem 1rem;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-transform: uppercase;
 }
 
 .header__title{
@@ -83,6 +76,7 @@
         font-size: 4.875rem;
         position: absolute;
         left: 50%;
+        bottom: .25rem;
         transform: translateX(-50%);
     }
 
@@ -107,6 +101,11 @@
         font-size: 1.125rem;
         text-transform: uppercase;
     }
+    
+    .header__nav a:hover{
+        background-color: var(--black);
+        color: var(--primary-color);
+    }
 
     .header__pill{
         background-color: var(--white);
@@ -115,8 +114,9 @@
         text-transform: uppercase;
     }
 
-    .active{
-        background-color: grey;
+    .header__nav  a.active{
+        background-color: var(--black);
+        color: var(--primary-color);
         cursor: default;
         text-decoration: none;
     }
