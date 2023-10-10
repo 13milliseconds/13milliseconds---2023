@@ -49,15 +49,31 @@
   }
   
   @media (min-width: 575px) {
-    
+  
     .card__title {
       margin-top: 0;
     }
   }
   
-  @media (min-width: 575px) {
+  @media (min-width: 800px) {
     .card {
-      margin: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card__title {
+      font-size: 2.375rem;
+    }
+
+    .card img,
+    .card__videoplayer{
+      grid-column: span 2;
+      --controls: none;
+      --media-object-fit: cover;
+    }
+
+    .card:nth-child(2n) img{
+      order: 1;
     }
   }
   

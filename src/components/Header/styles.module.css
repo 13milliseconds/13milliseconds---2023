@@ -54,7 +54,7 @@
 }
 
 .header__title{
-    font-size: 2.3rem;
+    font-size: 12vw;
     font-style: normal;
     font-weight: 300;
     line-height: .8em;
@@ -105,6 +105,11 @@
         border-radius: 2rem;
         padding: .5rem 1rem;
         text-transform: uppercase;
+    }
+
+    .active{
+        background-color: grey;
+        cursor: default;
     }
 
     .header__pill:nth-child(3){

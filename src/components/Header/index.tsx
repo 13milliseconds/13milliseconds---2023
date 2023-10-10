@@ -13,6 +13,7 @@ export default function Header() {
   }
   const router = useRouter()
   const isHome = router.pathname == '/'
+  console.log(router.pathname)
 
   const { scrollY } = useScroll();
   const [transitionPercent, setTransitionPercent] = useState(100)
@@ -22,6 +23,9 @@ export default function Header() {
   })
 
   const mainTitle = <Link href="/" className={`${styles.header__title}`}>13milliseconds</Link>
+  const pillLink = (name) => <Link href={`/${name}`}
+        className={`${styles.header__pill} ${router.pathname == `/${name}` ? styles.active : ''}`}
+        >{name}</Link>
 
   return (
     <header className={styles.header}>{
@@ -36,9 +40,9 @@ export default function Header() {
       >{mainTitle}</motion.div> : mainTitle }
         <button className={styles.header__toggle} onClick={menuToggle}>{menuOpen ? 'Close' : 'Menu'}</button>
         <nav className={`${styles.header__nav} ${menuOpen && styles.header__nav__open}`}>
-            <Link href="/projects" className={styles.header__pill}>Work</Link>
-            <Link href="/about" className={styles.header__pill}>About</Link>
-            <Link href="/contact" className={styles.header__pill}>Contact</Link>
+            {pillLink('projects')}
+            {pillLink('about')}
+            {pillLink('contact')}
         </nav>
     </header>
   )

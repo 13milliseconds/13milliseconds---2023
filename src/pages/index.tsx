@@ -2,8 +2,8 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useState } from "react"
 
-import Card from '~/components/Card'
 import Container from '~/components/Container'
+import FeaturedCard from "~/components/FeaturedCard"
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { getPage, PageHomeData} from '~/lib/sanity.queries'
@@ -58,7 +58,7 @@ export default function IndexPage(
 
       <section>
         {featuredProjects.length ? (
-          featuredProjects.map((post) => <Card key={post._id} post={post} />)
+          featuredProjects.map((post) => <FeaturedCard key={post._id} post={post} />)
         ) : null}
       </section>
     </Container>
