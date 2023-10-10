@@ -12,7 +12,7 @@
 .logos{
     margin: var(--space-6) 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     filter: invert();
     opacity: .8;
@@ -30,6 +30,11 @@
     }
 
     .logos{
-        grid-template-columns: repeat(6, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .logos img{
+        max-width: 8rem;
     }
 }

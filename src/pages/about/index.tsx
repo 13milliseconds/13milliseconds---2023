@@ -43,9 +43,11 @@ export default function AboutPage(
         <div>
             <PortableText value={body} />
         </div>
+        {bioImage && 
         <div className={styles.bio__image}>
-          {bioImage && <ResponsiveImage image={bioImage} width={500} alt={'Bio Image'} className={''} />}
+          <ResponsiveImage image={bioImage} width={500} alt={'Bio Image'} className={''} />
         </div>
+      }
       </section>
       <section className={styles.logos}>
         {clients.length ? clients.map(client=> 

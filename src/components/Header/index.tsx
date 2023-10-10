@@ -1,4 +1,5 @@
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
+import Hamburger from "hamburger-react"
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState } from 'react'
@@ -13,7 +14,6 @@ export default function Header() {
   }
   const router = useRouter()
   const isHome = router.pathname == '/'
-  console.log(router.pathname)
 
   const { scrollY } = useScroll();
   const [transitionPercent, setTransitionPercent] = useState(100)
@@ -23,7 +23,14 @@ export default function Header() {
   })
 
   const mainTitle = <Link href="/" className={`${styles.header__title}`}>13milliseconds</Link>
+
+  const disableLink = (e) => {
+    e.preventDefault()
+    setMenuOpen(false)
+  }
+
   const pillLink = (name) => <Link href={`/${name}`}
+        onClick={(e) => router.pathname == `/${name}` ? disableLink(e) : null}
         className={`${styles.header__pill} ${router.pathname == `/${name}` ? styles.active : ''}`}
         >{name}</Link>
 
@@ -38,7 +45,7 @@ export default function Header() {
           opacity: 1 - transitionPercent / 100,
         }} 
       >{mainTitle}</motion.div> : mainTitle }
-        <button className={styles.header__toggle} onClick={menuToggle}>{menuOpen ? 'Close' : 'Menu'}</button>
+      <Hamburger toggled={menuOpen} toggle={menuToggle} />
         <nav className={`${styles.header__nav} ${menuOpen && styles.header__nav__open}`}>
             {pillLink('projects')}
             {pillLink('about')}

@@ -9,6 +9,7 @@
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: var(--space-3);
     padding: var(--space-3);
 }
@@ -38,6 +39,13 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-transform: capitalize;
+}
+
+.active{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
 }
 
 .header__toggle{
@@ -97,7 +105,7 @@
 
     .header__nav a{
         font-size: 1.125rem;
-
+        text-transform: uppercase;
     }
 
     .header__pill{
@@ -110,6 +118,7 @@
     .active{
         background-color: grey;
         cursor: default;
+        text-decoration: none;
     }
 
     .header__pill:nth-child(3){
