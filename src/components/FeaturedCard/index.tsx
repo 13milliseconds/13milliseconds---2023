@@ -1,6 +1,7 @@
 import MuxPlayer from '@mux/mux-player-react'
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { useInViewport } from 'react-in-viewport'
 
 import { type Post } from '~/lib/sanity.queries'
 
@@ -18,6 +19,20 @@ export default function FeaturedCard({ post }: { post: Post }) {
       });
   };
 
+  const attemptPause = () => {
+    videoEl &&
+      videoEl.current &&
+      videoEl.current.pause()
+  };
+
+  const {
+    inViewport,
+  } = useInViewport(videoEl)
+
+  useEffect(() => {
+    inViewport ? attemptPlay() : attemptPause()
+  }, [inViewport])
+
   return (
     <div className={styles.card}>
       {mainVideo ?
@@ -31,8 +46,7 @@ export default function FeaturedCard({ post }: { post: Post }) {
       onCanPlay={attemptPlay}
       className={styles.card__videoplayer}
     />
-       :null}
-    {mainImage ? (
+       : mainImage ? (
         <ResponsiveImage
           image={mainImage}
           width={1200}

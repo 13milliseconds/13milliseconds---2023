@@ -9,7 +9,7 @@ export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
     playbackId,
 
   }
-} | order(_createdAt desc)`
+} | order(_createdAt asc)`
 
 export async function getPosts(client: SanityClient): Promise<Post[]> {
   return await client.fetch(postsQuery)
