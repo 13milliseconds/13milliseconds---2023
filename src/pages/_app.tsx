@@ -60,10 +60,10 @@ export default function App({
           property="og:description"
           content="We’re a digital-first creative studio turning brands into delightful web experiences."
         />
-        {/* <meta
+        <meta
           property="og:image"
-          content={post.mainImage ? post.mainImage.url : ''}
-        /> */}
+          content={'/shareimage.png'}
+        />
         </Head>
         <Script id="google-analytics">
           {`
