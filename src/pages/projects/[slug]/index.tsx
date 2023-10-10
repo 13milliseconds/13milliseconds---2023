@@ -1,5 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 import { useLiveQuery } from 'next-sanity/preview'
 
 import Container from '~/components/Container'
@@ -54,6 +55,9 @@ export default function ProjectSlugRoute(
 
   return (
     <Container>
+      <Head>
+          <title>13milliseconds // {post.title}</title>
+      </Head>
       <div className={styles.project}>
       <section className={styles.project__header}>
         <h1 className={styles.project__title}>{post.title}</h1>

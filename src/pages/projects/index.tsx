@@ -1,4 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 import { useLiveQuery } from 'next-sanity/preview'
 
 import Card from '~/components/Card'
@@ -37,6 +38,9 @@ export default function ProjectsPage({ pageData, postsLoaded }: InferGetStaticPr
 
   return (
     <Container>
+      <Head>
+          <title>13milliseconds // Project</title>
+      </Head>
       <section className={styles.intro}>
        <h1>{ title }</h1>
       </section>

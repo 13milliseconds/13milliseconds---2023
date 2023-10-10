@@ -1,5 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 
 import Container from '~/components/Container'
@@ -39,6 +40,9 @@ export default function AboutPage(
         } = pageData
   return (
     <Container>
+      <Head>
+          <title>13milliseconds // About</title>
+      </Head>
       <section className={styles.page__content}>
         <div>
             <PortableText value={body} />

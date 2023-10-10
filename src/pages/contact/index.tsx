@@ -1,4 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 
 import Container from '~/components/Container'
 import { readToken } from '~/lib/sanity.api'
@@ -28,10 +29,14 @@ export const getStaticProps: GetStaticProps<
 export default function ContactPage(
     { pageData }: InferGetStaticPropsType<typeof getStaticProps>,)  
     {
+      const {title} = pageData
   return (
     <Container>
+      <Head>
+          <title>13milliseconds // Contact</title>
+      </Head>
       <section className={styles.logos}>
-        Contact
+        <h1>{title}</h1>
       </section>
     </Container>
   )
