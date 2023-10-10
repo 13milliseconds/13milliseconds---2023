@@ -18,6 +18,9 @@
   .card__videoplayer{
     --controls: none;
     --media-object-fit: cover;
+    --seek-backward-button: none;
+    --seek-forward-button: none;
+    --play-button: none;
   }
   
   .card__title {
