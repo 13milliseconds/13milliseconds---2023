@@ -40,21 +40,6 @@ export async function getPost(
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `
-// export const videoByRefQuery = groq`*[_type == "mux.video" && slug.current == $slug][0]{
-//   ...,
-//   "mainVideo": mainVideo.asset->{
-//     playbackId,
-//   }
-// }`
-
-// export async function getVideo(
-//   client: SanityClient,
-//   ref: string,
-// ): Promise<Post> {
-//   return await client.fetch(videoByRefQuery, {
-//     ref,
-//   })
-// }
 
 // GET PAGE DATA
 export async function getPage(client: SanityClient, page : string)
