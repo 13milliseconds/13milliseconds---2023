@@ -1,5 +1,5 @@
 import MuxPlayer from '@mux/mux-player-react'
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { VideoAsset } from '~/lib/sanity.queries';
 
@@ -8,15 +8,19 @@ import styles from './styles.module.css'
 export default function Video({ videoAsset }: {
     videoAsset: VideoAsset
 }){
-    console.log(videoAsset)
     const videoEl = useRef(null);
+
     const attemptPlay = () => {
       videoEl &&
         videoEl.current &&
-        videoEl.current.play().catch(error => {
-          console.error("Error attempting to play", error);
+        videoEl.current.play().then(() => {
+            console.log('Playing')
+        }).catch(error => {
+            console.error("Error attempting to play", error);
+            setTimeout(() => attemptPlay() , 500)
         });
     };
+
 
     return <MuxPlayer
     streamType="on-demand"
