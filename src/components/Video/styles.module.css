@@ -1,0 +1,5 @@
+.videoplayer{
+    grid-column: span 2;
+    --controls: none;
+    --media-object-fit: cover;
+  }

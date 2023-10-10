@@ -19,7 +19,12 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
   ...,
   "mainVideo": mainVideo.asset->{
     playbackId,
-
+  },
+  body[]{
+    ...,
+    _type == "video" => {
+      "playbackId": asset->playbackId,
+    }
   }
 }`
 
@@ -35,6 +40,21 @@ export async function getPost(
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `
+// export const videoByRefQuery = groq`*[_type == "mux.video" && slug.current == $slug][0]{
+//   ...,
+//   "mainVideo": mainVideo.asset->{
+//     playbackId,
+//   }
+// }`
+
+// export async function getVideo(
+//   client: SanityClient,
+//   ref: string,
+// ): Promise<Post> {
+//   return await client.fetch(videoByRefQuery, {
+//     ref,
+//   })
+// }
 
 // GET PAGE DATA
 export async function getPage(client: SanityClient, page : string)
@@ -94,4 +114,8 @@ export interface PageHomeData {
 
 export interface SiteSettingsData {
   title?: string
+}
+
+export interface  VideoAsset {
+  playbackId: string
 }

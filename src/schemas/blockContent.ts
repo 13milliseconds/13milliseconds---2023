@@ -60,5 +60,10 @@ export default defineType({
       title: 'Image',
       type: 'image',
     }),
+    defineArrayMember({
+      name: 'video',
+      title: 'Video',
+      type: 'mux.video',
+    }),
   ],
 })
