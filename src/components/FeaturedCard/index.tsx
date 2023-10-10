@@ -8,7 +8,7 @@ import ResponsiveImage from '../ResponsiveImage'
 import styles from './styles.module.css'
 
 export default function FeaturedCard({ post }: { post: Post }) {
-  const { mainVideo } = post
+  const { mainVideo, mainImage } = post
   const videoEl = useRef(null);
   const attemptPlay = () => {
     videoEl &&
@@ -31,9 +31,10 @@ export default function FeaturedCard({ post }: { post: Post }) {
       onCanPlay={attemptPlay}
       className={styles.card__videoplayer}
     />
-       : post.mainImage ? (
+       :null}
+    {mainImage ? (
         <ResponsiveImage
-          image={post.mainImage}
+          image={mainImage}
           width={1200}
           className={styles.card__cover}
           alt="project image"

@@ -16,6 +16,7 @@
   }
 
 .card__videoplayer{
+  display: none;
     --controls: none;
     --media-object-fit: cover;
 }
@@ -68,6 +69,14 @@
 
     .card__title {
       font-size: 2.375rem;
+    }
+
+    .card__cover{
+      display: none;
+    }
+
+    .card__videoplayer{
+      display: block
     }
 
     .card img,
