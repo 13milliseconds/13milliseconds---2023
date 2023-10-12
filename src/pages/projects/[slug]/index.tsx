@@ -77,7 +77,7 @@ export default function ProjectSlugRoute(
         {post.mainImage ? (
         <ResponsiveImage
           image={post.mainImage}
-          width={800}
+          width={1500}
           className={styles.project__cover}
           alt="project image"
           />
